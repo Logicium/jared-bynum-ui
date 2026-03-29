@@ -108,7 +108,7 @@ export const campaigns: Campaign[] = [
     title: 'Voter Access & Engagement Drive',
     category: 'Social Justice',
     year: '2023',
-    image: '/images/campaign-voter-access.heic',
+    image: '/images/campaign-voter-access.jpg',
     description: 'Led a major voter registration and civic engagement initiative that registered 25,000+ new voters across underserved communities in Colorado.',
     tags: ['Voter Access', 'Civic Engagement'],
     location: 'Denver, Aurora, Colorado Springs',

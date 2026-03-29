@@ -12,7 +12,7 @@
 
     <div class="contact-info__block">
       <span class="contact-info__label label accent">Based In</span>
-      <p class="contact-info__text">Washington, D.C.</p>
+      <p class="contact-info__text">Denver, Colorado</p>
       <p class="contact-info__subtext">Available nationally</p>
     </div>
 

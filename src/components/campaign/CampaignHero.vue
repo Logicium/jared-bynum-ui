@@ -38,17 +38,26 @@ defineProps<{
 .campaign-hero {
   position: relative;
   margin-top: 72px;
+  width: 100%;
 }
 
 .campaign-hero__image {
   height: 55vh;
   min-height: 400px;
   overflow: hidden;
+  width: 100%;
 }
 
 .campaign-hero__image :deep(.photo) {
+  height: 100% !important;
+  aspect-ratio: unset !important;
+  width: 100%;
+}
+
+.campaign-hero__image :deep(.photo__img) {
+  width: 100%;
   height: 100%;
-  aspect-ratio: auto;
+  object-fit: cover;
 }
 
 .campaign-hero__overlay {

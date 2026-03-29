@@ -26,10 +26,10 @@
         <div class="credentials__col">
           <span class="credentials__label label accent">Recognition</span>
           <ul class="credentials__list">
-            <li>Emerging Organizer of the Year — National Policy Institute</li>
-            <li>40 Under 40 — Progressive Leaders Council</li>
-            <li>Environmental Champion Award — Green Alliance</li>
-            <li>Community Impact Fellow — Urban Policy Foundation</li>
+            <li>Emerging Organizer of the Year — Colorado Progressive Alliance</li>
+            <li>40 Under 40 — Colorado Politics</li>
+            <li>Environmental Champion Award — Conservation Colorado</li>
+            <li>Community Impact Fellow — Denver Urban Policy Foundation</li>
           </ul>
         </div>
       </div>

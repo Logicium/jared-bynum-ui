@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { content } from '@/data/site'
 import PhotoPlaceholder from '@/components/shared/PhotoPlaceholder.vue'
 import SectionHeading from '@/components/shared/SectionHeading.vue'
 import CallToAction from '@/components/shared/CallToAction.vue'
@@ -10,8 +11,10 @@ const featured = campaigns.slice(0, 3)
 <template>
   <section class="featured">
     <div class="container">
-      <SectionHeading label="Selected Work">
-        Campaigns That <em class="accent">Moved</em> the Needle
+      <SectionHeading :label="content.featured.label">
+        {{ content.featured.titleLead }}
+        <em class="accent">{{ content.featured.titleAccent }}</em>
+        {{ content.featured.titleTrail }}
       </SectionHeading>
 
       <div class="featured__grid">

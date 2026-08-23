@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { content } from '@/data/site'
 import PhotoPlaceholder from '@/components/shared/PhotoPlaceholder.vue'
 import CallToAction from '@/components/shared/CallToAction.vue'
 </script>
@@ -27,26 +28,26 @@ import CallToAction from '@/components/shared/CallToAction.vue'
     <!-- Overlaid text block -->
     <div class="hero__content">
       <div class="hero__content-inner">
-        <p class="hero__eyebrow label">Political Strategist &amp; Organizer</p>
+        <p class="hero__eyebrow label">{{ content.hero.eyebrow }}</p>
         <h1 class="hero__title">
-          Jared<br /><span class="accent">Bynum</span>
+          {{ content.hero.firstName }}<br /><span class="accent">{{ content.hero.lastName }}</span>
         </h1>
         <div class="hero__rule" />
         <p class="hero__subtitle">
-          Building coalitions. Shaping policy.<br />
-          Driving change through strategic<br />
-          organizing and unwavering advocacy.
+          {{ content.hero.subtitleLead }}<br />
+          {{ content.hero.subtitleMid }}<br />
+          {{ content.hero.subtitleTrail }}
         </p>
         <div class="hero__actions">
-          <CallToAction to="/contact">Work With Jared</CallToAction>
-          <CallToAction to="/work" variant="outline">View Campaigns</CallToAction>
+          <CallToAction to="/contact">{{ content.hero.primaryCta }}</CallToAction>
+          <CallToAction to="/work" variant="outline">{{ content.hero.secondaryCta }}</CallToAction>
         </div>
       </div>
     </div>
 
     <!-- Editorial index number -->
-    <span class="hero__index label">No. 01 — Portfolio</span>
-    <span class="hero__scroll label">Scroll</span>
+    <span class="hero__index label">{{ content.hero.index }}</span>
+    <span class="hero__scroll label">{{ content.hero.scroll }}</span>
   </section>
 </template>
 

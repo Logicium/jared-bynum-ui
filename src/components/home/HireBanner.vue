@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { content } from '@/data/site'
 import CallToAction from '@/components/shared/CallToAction.vue'
 </script>
 
@@ -6,15 +7,12 @@ import CallToAction from '@/components/shared/CallToAction.vue'
   <section class="hire-banner">
     <div class="container container--narrow">
       <div class="hire-banner__inner">
-        <p class="hire-banner__label label">Ready to win?</p>
+        <p class="hire-banner__label label">{{ content.hire.label }}</p>
         <h2 class="hire-banner__title">
-          Let's Build Your Next <em class="accent">Campaign</em>
+          {{ content.hire.titleLead }} <em class="accent">{{ content.hire.titleAccent }}</em>
         </h2>
-        <p class="hire-banner__body">
-          From policy advocacy to grassroots mobilization, Jared brings
-          strategic clarity and relentless execution to every engagement.
-        </p>
-        <CallToAction to="/contact">Get in Touch</CallToAction>
+        <p class="hire-banner__body">{{ content.hire.body }}</p>
+        <CallToAction to="/contact">{{ content.hire.cta }}</CallToAction>
       </div>
     </div>
   </section>

@@ -1,22 +1,14 @@
 <script setup lang="ts">
+import { content } from '@/data/site'
 </script>
 
 <template>
   <section class="philosophy">
     <div class="container container--narrow">
       <div class="philosophy__inner">
-        <span class="philosophy__label label accent">Philosophy</span>
-        <blockquote class="philosophy__quote">
-          "Real change doesn't start in a boardroom.
-          It starts in communities — with people who refuse
-          to accept the world as it is."
-        </blockquote>
-        <p class="philosophy__body">
-          Jared's approach to political organizing blends rigorous policy
-          analysis with ground-level coalition building. Every campaign is
-          rooted in the belief that sustainable progress requires both
-          vision and the discipline to see it through.
-        </p>
+        <span class="philosophy__label label accent">{{ content.philosophy.label }}</span>
+        <blockquote class="philosophy__quote">{{ content.philosophy.quote }}</blockquote>
+        <p class="philosophy__body">{{ content.philosophy.body }}</p>
       </div>
     </div>
   </section>

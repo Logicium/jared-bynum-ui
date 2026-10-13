@@ -1,7 +1,16 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { createApotomeForm } from '@/kit/forms'
 
-const form = ref({
+/*
+ * Contact runs through the Apotome Labs forms add-on: the submission is
+ * stored in Jared's portal inbox and emailed to him, with reply-to set to
+ * the person who wrote in. The field keys match the "contact" form
+ * definition in the portal; change one here, change it there.
+ */
+const contact = createApotomeForm({ form: 'contact' })
+
+const emptyForm = () => ({
   name: '',
   email: '',
   organization: '',
@@ -9,10 +18,29 @@ const form = ref({
   message: '',
 })
 
-const submitted = ref(false)
+const form = ref(emptyForm())
+/* the decoy field; a real visitor never sees it, so it must stay empty */
+const honeypot = ref('')
 
-function handleSubmit() {
-  submitted.value = true
+const submitted = ref(false)
+const sending = ref(false)
+const error = ref('')
+
+async function handleSubmit() {
+  if (sending.value) return
+  sending.value = true
+  error.value = ''
+  const result = await contact.submit({
+    ...form.value,
+    [contact.honeypotField]: honeypot.value,
+  })
+  sending.value = false
+  if (result.ok) {
+    submitted.value = true
+    form.value = emptyForm()
+  } else {
+    error.value = result.error
+  }
 }
 </script>
 
@@ -84,10 +112,28 @@ function handleSubmit() {
           />
         </div>
 
-        <button type="submit" class="form__submit">
-          <span class="label">Send Inquiry</span>
+        <!--
+          Honeypot. Positioned off-screen rather than type="hidden": a hidden
+          input is trivially skipped by a bot, a text input moved out of the
+          viewport is not. Kept out of the tab order and the a11y tree.
+        -->
+        <div class="hp" aria-hidden="true">
+          <label :for="contact.honeypotField">Do not fill this in</label>
+          <input
+            :id="contact.honeypotField"
+            v-model="honeypot"
+            type="text"
+            tabindex="-1"
+            autocomplete="off"
+          />
+        </div>
+
+        <button type="submit" class="form__submit" :disabled="sending">
+          <span class="label">{{ sending ? 'Sending' : 'Send Inquiry' }}</span>
           <span>&rarr;</span>
         </button>
+
+        <p v-if="error" class="form__error" role="alert">{{ error }}</p>
       </form>
     </div>
 
@@ -168,6 +214,21 @@ function handleSubmit() {
 
 .form__success p {
   color: var(--color-gray-600);
+}
+
+.form__error {
+  grid-column: 1 / -1;
+  color: var(--color-accent);
+  font-size: 0.9rem;
+}
+
+/* honeypot: out of sight and out of the tab order, but a real input */
+.hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 @media (max-width: 768px) {

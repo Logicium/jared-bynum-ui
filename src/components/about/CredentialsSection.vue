@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { recognition, stats } from '@/data/about'
 </script>
 
 <template>
@@ -8,17 +9,9 @@
         <div class="credentials__col">
           <span class="credentials__label label accent">By the Numbers</span>
           <div class="credentials__stats">
-            <div class="credentials__stat">
-              <span class="credentials__number">50+</span>
-              <span class="credentials__desc">Campaigns Organized</span>
-            </div>
-            <div class="credentials__stat">
-              <span class="credentials__number">12</span>
-              <span class="credentials__desc">Legislative Wins</span>
-            </div>
-            <div class="credentials__stat">
-              <span class="credentials__number">100K+</span>
-              <span class="credentials__desc">Community Members Mobilized</span>
+            <div v-for="s in stats" :key="s.desc" class="credentials__stat">
+              <span class="credentials__number">{{ s.number }}</span>
+              <span class="credentials__desc">{{ s.desc }}</span>
             </div>
           </div>
         </div>
@@ -26,10 +19,7 @@
         <div class="credentials__col">
           <span class="credentials__label label accent">Recognition</span>
           <ul class="credentials__list">
-            <li>Emerging Organizer of the Year — Colorado Progressive Alliance</li>
-            <li>40 Under 40 — Colorado Politics</li>
-            <li>Environmental Champion Award — Conservation Colorado</li>
-            <li>Community Impact Fellow — Denver Urban Policy Foundation</li>
+            <li v-for="r in recognition" :key="r">{{ r }}</li>
           </ul>
         </div>
       </div>

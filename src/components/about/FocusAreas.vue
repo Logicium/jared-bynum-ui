@@ -1,24 +1,5 @@
 <script setup lang="ts">
-const focusAreas = [
-  {
-    number: '01',
-    title: 'Policy Advocacy',
-    description:
-      'Crafting and advancing legislation through strategic coalition-building, stakeholder engagement, and sustained public pressure campaigns.',
-  },
-  {
-    number: '02',
-    title: 'Environmental Action',
-    description:
-      'Organizing communities around climate justice and environmental protection, ensuring frontline voices lead the conversation.',
-  },
-  {
-    number: '03',
-    title: 'Social Justice',
-    description:
-      'Fighting for equity across housing, voting rights, healthcare access, and criminal justice reform through systemic organizing.',
-  },
-]
+import { focusAreas } from '@/data/about'
 </script>
 
 <template>

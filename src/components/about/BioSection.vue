@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import PhotoPlaceholder from '@/components/shared/PhotoPlaceholder.vue'
+import { bioParagraphs } from '@/data/about'
 </script>
 
 <template>
@@ -20,25 +21,7 @@ import PhotoPlaceholder from '@/components/shared/PhotoPlaceholder.vue'
           <em class="accent">Advocate.</em>
         </h2>
         <div class="bio__text">
-          <p>
-            Jared Bynum is a political strategist and community organizer
-            whose work sits at the intersection of policy advocacy,
-            environmental action, and social justice. With a decade of
-            experience building coalitions and moving legislation, Jared
-            has become a trusted voice in progressive political strategy.
-          </p>
-          <p>
-            His approach is defined by meticulous research, authentic
-            community engagement, and an uncompromising commitment to
-            equity. Whether mobilizing grassroots movements or advising
-            elected officials, Jared brings the same discipline and
-            creative thinking to every challenge.
-          </p>
-          <p>
-            Before his organizing career, Jared studied political science
-            and urban planning, grounding his strategic work in rigorous
-            academic understanding of the systems he works to change.
-          </p>
+          <p v-for="(para, i) in bioParagraphs" :key="i">{{ para }}</p>
         </div>
       </div>
     </div>

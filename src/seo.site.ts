@@ -12,6 +12,8 @@ import type { SiteConfig } from '@/kit/seo'
 
 export const site: SiteConfig = {
   siteUrl: 'https://www.jaredbynum.com',
+  // Google Search Console ownership tag (home page only). Managed by the studio.
+  verification: { google: 'uAOhnu8Mqu9HjYbM1XiBXsqGmy0AncepBXWrmxF9xhM' },
   name: 'Jared Bynum',
   tagline: 'Political strategist and organizer',
   description:
